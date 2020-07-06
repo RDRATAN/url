@@ -24,7 +24,7 @@ router.post('/new',function(req,res){
             throw err;
           }
           var result_url = JSON.parse(data)[req.body.url_name]['url_name'];
-          res.render('index',{output:'Your Final Url is',url: 'https://localhost:3000/'+result_url});
+          res.render('index',{output:'Your Final Url is',url: 'https://url-rkd.herokuapp.com/'+result_url});
         });
       }
       else{
