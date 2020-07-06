@@ -21,14 +21,14 @@ router.post('/new',function(req,res){
       if(!err){
         fs.readFile('./routes/data.json', "utf8", (err, data) => {
           if (err) {
-            throw err;
+            res.render('index',{output:'Insufficent Data'});
           }
           var result_url = JSON.parse(data)[req.body.url_name]['url_name'];
           res.render('index',{output:'Your Final Url is',url: 'https://url-rkd.herokuapp.com/'+result_url});
         });
       }
       else{
-        console.log(err);
+        res.render('index',{output:'Insufficent Data'});
       }
      
     });
@@ -47,10 +47,10 @@ router.post('/new',function(req,res){
 router.get("/:id", (req, res) => {
   fs.readFile('./routes/data.json', "utf8", (err, data) => {
     if (err) {
-      throw err;
+      res.render('index',{output:'Insufficent Data'});
     }
-
-    res.redirect(JSON.parse(data)[req.params.id]['url_value']);
+    else{
+    res.redirect(JSON.parse(data)[req.params.id]['url_value']);}
   });
 });
 
