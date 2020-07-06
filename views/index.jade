@@ -1,0 +1,17 @@
+extend layout
+
+block sidebar
+  .widget
+    h1 Enter your URL Details Here
+    form(action="/new", method="post")
+      label(for="url_name") URL Name
+      input(type="text", name="url_name")
+      br
+      br
+      label(for="url_value") URL Value
+      input(type="text", name="url_value")
+      
+      input(type="submit", value="submit")
+  p #{output}
+  a(href=url) #{url}
+ 
